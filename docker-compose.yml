@@ -38,12 +38,12 @@ services:
 #          - node.hostname == ${HOSTNAME}
 
   node-exporter:
-    image: quay.io/prometheus/node-exporter:latest
+    image: prom/node-exporter:latest
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /:/rootfs:ro
-      - /:/host:ro,rslave
+      # - /:/host:ro,rslave
     command: 
       - '--path.rootfs=/host'
       - '--path.procfs=/host/proc' 
