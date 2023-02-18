@@ -9,7 +9,13 @@ networks:
   back-tier:
 
 services:
-
+  app:
+    build: ./app
+    networks:
+      - back-tier
+    restart: always
+    ports:
+      - 8000:8000
   prometheus:
     image: prom/prometheus:v2.36.2
     volumes:
